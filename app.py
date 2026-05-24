@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
+import json
 
 # ==============================================================================
 # 模組一：數據獲取與本地緩存模組
@@ -46,7 +47,21 @@ class DataManager:
     """台灣股市數據管理模組 - 實接證交所 OpenAPI 與 twstock 歷史資料"""
     def __init__(self):
         # 定義 APP 預設支援的熱門測試標的
-        self.supported_stocks = {"2330": "台積電", "2454": "聯發科", "2317": "鴻海", "5434": "崇越", "2495": "普安"}
+        # self.supported_stocks = {"2330": "台積電", "2454": "聯發科", "2317": "鴻海", "5434": "崇越", "2495": "普安"}
+        # 建立空集合變數
+        file_dict = {}
+        # 讀取文字檔內容
+        with open('stock_d.txt', 'r', encoding='utf-8') as file:       
+            for line in file:
+                key, value = line.strip().split(':')
+                file_dict[key.strip()] = value.strip()
+                
+        self.supported_stocks = file_dict
+        
+        
+        # 顯示最終的集合內容
+        print(self.supported_stocks)
+        
         # 證交所 OpenAPI 的每日個股收盤行情 API 節點
         self.twse_openapi_url = "https://twse.com.tw"
 
