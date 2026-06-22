@@ -1,3 +1,4 @@
 Edit a text file use copy con command.
 Alternative Methods in DOS Environment
 file1.txt
+New line in file1.txt
