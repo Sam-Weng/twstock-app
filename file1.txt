@@ -1,3 +1,0 @@
-Edit a text file use copy con command.
-Alternative Methods in DOS Environment
-Have modefied file1.txt.
