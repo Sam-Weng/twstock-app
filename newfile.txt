@@ -1,1 +1,0 @@
-newfile.txt is a text file.
